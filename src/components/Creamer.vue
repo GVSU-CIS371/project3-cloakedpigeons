@@ -1,10 +1,11 @@
 <template>
-  <div class="froth">
-    <div v-for=" in 5" class="foam"></div>
+  <div class="froth" >
+    <div v-for=" in showFoam" class="foam" :style="{ backgroundColor: creamerColor }"></div>
   </div>
 </template>
 
 <script setup lang="ts">
+let showFoam=5;
 import { computed } from "vue";
 type Prop = {
   name: string;
@@ -26,12 +27,24 @@ const Creamers: Creamer[] = [
     name: "Half & Half",
     color: "#FFFACD",
   },
+
+  
 ];
 
-const props = withDefaults(defineProps<Prop>(), {
-  name: "Milk",
+// Update props to allow the base beverage to change
+const props = defineProps({
+  name: String,
+});
+
+// Function for Creamer
+const creamerColor = computed(() => {
+
+  const selectedCreamer = Creamers.find(creamer => creamer.name === props.name);
+  
+  return selectedCreamer ? selectedCreamer.color : "";
 });
 </script>
+
 <style lang="scss" scoped>
 .froth {
   overflow: visible;
