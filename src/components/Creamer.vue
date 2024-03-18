@@ -1,6 +1,6 @@
 <template>
-  <div class="froth" :style="{ backgroundColor: creamerColor }">
-    <div v-for=" in showFoam" class="foam"></div>
+  <div class="froth" >
+    <div v-for=" in showFoam" class="foam" :style="{ backgroundColor: creamerColor }"></div>
   </div>
 </template>
 
@@ -40,10 +40,7 @@ const props = defineProps({
 const creamerColor = computed(() => {
 
   const selectedCreamer = Creamers.find(creamer => creamer.name === props.name);
-  selectedCreamer ? showFoam=5 : showFoam=0  ;
   
- 
-    
   return selectedCreamer ? selectedCreamer.color : "";
 });
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <div class="syrup"></div>
+  <div class="syrup" :style="{  backgroundColor: syrupColor }"></div>
 </template>
 
 <script setup lang="ts">
-let showSyrup=5;
+let showSyrup=1;
 import { computed } from "vue";
 type Prop = {
   name: string;
@@ -27,12 +27,25 @@ const Syrups: Syrup[] = [
   },
 ];
 
-const props = withDefaults(defineProps<Prop>(), {
-  name: "Vanilla",
+// Update props to allow the base beverage to change
+const props = defineProps({
+  name: String,
+});
+
+// Function for Syrup color
+const syrupColor = computed(() => {
+
+  const selectedSyrup = Syrups.find(syrup => syrup.name === props.name);
+  selectedSyrup ? showSyrup=1 : showSyrup=0  ;
+  
+ 
+    
+  return selectedSyrup ? selectedSyrup.color : "";
 });
 </script>
 <style lang="scss" scoped>
 .syrup {
+  
   transform: translateY(400%);
   position: relative;
   width: 100%;

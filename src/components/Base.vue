@@ -4,7 +4,6 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-
 type Prop = {
   name: string;
 };
