@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts">
+let showSyrup=5;
 import { computed } from "vue";
 type Prop = {
   name: string;

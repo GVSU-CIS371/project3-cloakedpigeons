@@ -40,7 +40,14 @@ const props = defineProps({
 const creamerColor = computed(() => {
 
   const selectedCreamer = Creamers.find(creamer => creamer.name === props.name);
+<<<<<<< HEAD
   
+=======
+  selectedCreamer ? showFoam=5 : showFoam=0  ;
+  
+ 
+    
+>>>>>>> a1e12331c0e18b0e4a405d50397c18a979c2d315
   return selectedCreamer ? selectedCreamer.color : "";
 });
 </script>
