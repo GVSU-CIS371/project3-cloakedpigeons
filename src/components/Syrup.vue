@@ -1,5 +1,7 @@
 <template>
-  <div class="syrup" :style="{  backgroundColor: syrupColor }"></div>
+
+  <div class="syrup" :style="{ backgroundColor: syrupColor }"></div>
+
 </template>
 
 <script setup lang="ts">
@@ -30,6 +32,7 @@ const Syrups: Syrup[] = [
 // Update props to allow the base beverage to change
 const props = defineProps({
   name: String,
+
 });
 
 // Function for Syrup color
