@@ -1,9 +1,10 @@
 <template>
-  <div class="baseBeverage"></div>
+  <div class="baseBeverage" :style="{ backgroundColor: baseColor }"></div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
+
 type Prop = {
   name: string;
 };
@@ -26,8 +27,15 @@ const Bases: BaseBeverage[] = [
   },
 ];
 
-const props = withDefaults(defineProps<Prop>(), {
-  name: "Black Tea",
+// Update props to allow the base beverage to change
+const props = defineProps({
+  name: String,
+});
+
+// Function for base bev
+const baseColor = computed(() => {
+  const selectedBase = Bases.find(base => base.name === props.name);
+  return selectedBase ? selectedBase.color : "";
 });
 </script>
 
