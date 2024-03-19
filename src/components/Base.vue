@@ -4,9 +4,6 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-type Prop = {
-  name: string;
-};
 type BaseBeverage = {
   name: string;
   color: string;

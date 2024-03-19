@@ -7,9 +7,6 @@
 <script setup lang="ts">
 let showFoam=5;
 import { computed } from "vue";
-type Prop = {
-  name: string;
-};
 type Creamer = {
   name: string;
   color: string;
