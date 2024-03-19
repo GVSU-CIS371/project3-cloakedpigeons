@@ -1,5 +1,7 @@
 <template>
+
   <div class="syrup" :style="{ backgroundColor: syrupColor }"></div>
+
 </template>
 
 <script setup lang="ts">
@@ -26,17 +28,18 @@ const Syrups: Syrup[] = [
 // Update props to allow the base beverage to change
 const props = defineProps({
   name: String,
+
 });
 
-// Function for base bev
+// Function for Syrup color
 const syrupColor = computed(() => {
-  const selectedBase = Syrups.find(syrup => syrup.name === props.name);
-  return selectedBase ? selectedBase.color : "";
+  const selectedSyrup = Syrups.find(syrup => syrup.name === props.name);   
+  return selectedSyrup ? selectedSyrup.color : "";
 });
-
 </script>
 <style lang="scss" scoped>
 .syrup {
+  
   transform: translateY(400%);
   position: relative;
   width: 100%;
